@@ -200,7 +200,7 @@ module.exports = new class CategoryController extends Controller {
 
     index(req, res) {
         this.model.Category.find()
-            .populate( 'SubCategory' )
+            .populate('subCategory')
             .exec((err, Category) => {
                 if (err) throw err;
                 if (Category) {
