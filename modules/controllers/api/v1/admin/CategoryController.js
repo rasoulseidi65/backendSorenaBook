@@ -1,7 +1,5 @@
 const Controller = require(`${config.path.controller}/Controller`);
-const AdminTransform = require(`${config.path.transform}/v1/AdminTransform`);
-const bcrypt = require('bcrypt');
-const { Console } = require('console');
+
 const fs = require('fs');
 
 module.exports = new class CategoryController extends Controller {
