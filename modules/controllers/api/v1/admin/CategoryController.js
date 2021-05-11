@@ -113,9 +113,6 @@ module.exports = new class CategoryController extends Controller {
             });
         });
     }
-
-
-    
     update(req, res) {
         req.checkParams('id', 'ای دی وارد شده صحیح نیست').isMongoId();
         req.checkBody('title', 'وارد کردن فیلد عنوان الزامیست').notEmpty();

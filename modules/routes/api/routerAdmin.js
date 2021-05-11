@@ -23,6 +23,8 @@ const AdminAnswerController = require(`${ControllerApi}/v1/admin/AnswerControlle
 const AdminCommentController = require(`${ControllerApi}/v1/admin/CommentController`);
 const AdminCartcustomController = require(`${ControllerApi}/v1/admin/CartcustomController`);
 const AdminUploadController = require(`${ControllerApi}/v1/admin/UploadController`);
+const CategoryController = require(`${ControllerApi}/v1/admin/CategoryController`);
+
 //admin router*********************************************
 //article
 adminRouter.post('/article', AdminArticleController.store.bind(AdminArticleController));
@@ -89,6 +91,14 @@ adminRouter.delete('/comment/:id', AdminCommentController.destroy.bind(AdminComm
 //cartcustom
 adminRouter.get('/cartcustom', apiAuthAdminUser,AdminCartcustomController.index.bind(AdminCartcustomController));
 adminRouter.get('/cartcustom/:id', AdminCartcustomController.single.bind(AdminCartcustomController));
+
+//category
+adminRouter.post('/registerCategory', CategoryController.register.bind(CategoryController));
+adminRouter.get('/category', CategoryController.index.bind(CategoryController));
+adminRouter.post('/registerSubCategory', CategoryController.registerSubCategory.bind(CategoryController));
+adminRouter.get('/subCategory/:id', CategoryController.indexSubCategory.bind(CategoryController));
+adminRouter.get('/searchParentSubCategory/:id', CategoryController.searchParentSubCategory.bind(CategoryController));
+
 
 adminRouter.post('/login', AdminAuthAdminController.login.bind(AdminAuthAdminController));
 adminRouter.post('/register', AdminAuthAdminController.register.bind(AdminAuthAdminController));
