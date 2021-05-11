@@ -195,9 +195,6 @@ module.exports = new class CategoryController extends Controller {
             });
         });
     }
-
-    
-
     index(req, res) {
         this.model.Category.find()
             .populate('SubCategory')
