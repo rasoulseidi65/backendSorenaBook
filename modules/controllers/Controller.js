@@ -29,12 +29,14 @@ const FeaturesValue=require(`${config.path.model}/featuresValue`);
 const Features=require(`${config.path.model}/features`);
 const ProductFeature=require(`${config.path.model}/productFeature`);
 const Inventory=require(`${config.path.model}/Inventory`);
+const Category = require(`${config.path.model}/category`);
+const SubCategory=require(`${config.path.model}/subCategory`);
 
 module.exports = class Controller {
     constructor() {
         this.model = { AdminUser,Course,Episode,Article, CustomerUser,Handout,Grade,Coupon,Basket,
             Comment,Question, Answer, Teacher,  Products, CartCustom, City, Country,FeaturesValue,Features,
-            Inventory,ProductFeature, Slider, Province,Rating  ,Payment,Wallet,Major,subCategoryQuestions}
+            Category,SubCategory,  Inventory,ProductFeature, Slider, Province,Rating  ,Payment,Wallet,Major,subCategoryQuestions}
     }
     showValidationErrors(req, res, callback) {
         let errors = req.validationErrors();

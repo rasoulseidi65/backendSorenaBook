@@ -39,7 +39,8 @@ adminRouter.post('/video', uploadVideo.single('video'), AdminUploadController.up
 
 
 //products
-adminRouter.get('/products', apiAuthAdminUser,AdminProductsController.index.bind(AdminProductsController));
+router.post('/registerProduct', AdminProductsController.registerProduct.bind(AdminProductsController));
+adminRouter.get('/products', AdminProductsController.index.bind(AdminProductsController));
 adminRouter.get('/products/:id', AdminProductsController.single.bind(AdminProductsController));
 adminRouter.delete('/products/:id', AdminProductsController.destroy.bind(AdminProductsController));
 
