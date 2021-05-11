@@ -18,7 +18,6 @@ const CustomerCityController = require(`${ControllerApi}/v1/users/CityController
 const CustomerCountryController = require(`${ControllerApi}/v1/users/CountryController`);
 const CustomerProvinceController = require(`${ControllerApi}/v1/users/ProvinceController`);
 const CustomerRatingController = require(`${ControllerApi}/v1/users/RatingController`);
-const CourseController = require(`${ControllerApi}/v1/users/CourseController`);
 const ArticleController = require(`${ControllerApi}/v1/users/ArticleController`);
 const PaymentController = require(`${ControllerApi}/v1/users/PaymentController`);
 const BasketController=require(`${ControllerApi}/v1/users/BasketController`);
@@ -29,14 +28,6 @@ const BasketController=require(`${ControllerApi}/v1/users/BasketController`);
 customerRouter.post('/image', uploadImage.single('image'), CustomerUploadController.uploadImage.bind(CustomerUploadController));
 
 
-//course
-customerRouter.post('/course',CourseController.store.bind(CourseController));
-customerRouter.get('/course',CourseController.index.bind(CourseController));
-customerRouter.post('/courseFind',CourseController.single.bind(CourseController));
-customerRouter.post('/courseUser',CourseController.courseUser.bind(CourseController));
-customerRouter.get('/newCourse',CourseController.newCourse.bind(CourseController));
-customerRouter.get('/viewMaxCourse',CourseController.viewMaxCourse.bind(CourseController));
-customerRouter.put('/viewCountCourse', CourseController.updateViewCount.bind(ArticleController));
 //Article
 customerRouter.get('/article', ArticleController.index.bind(ArticleController));
 customerRouter.get('/findArticle/:id', ArticleController.single.bind(ArticleController));

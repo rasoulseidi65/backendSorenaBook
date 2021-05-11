@@ -13,9 +13,6 @@ const { uploadFiles } = require('./middleware/UploadMiddleware');
 const { api: ControllerApi } = config.path.controllers;
 
 const AdminArticleController = require(`${ControllerApi}/v1/admin/ArticleController`);
-const AdminCityController = require(`${ControllerApi}/v1/admin/CityController`);
-const AdminCountryController = require(`${ControllerApi}/v1/admin/CountryController`);
-const AdminProvinceController = require(`${ControllerApi}/v1/admin/ProvinceController`);
 const AdminProductsController = require(`${ControllerApi}/v1/admin/ProductsController`);
 const AdminSliderController = require(`${ControllerApi}/v1/admin/SliderController`);
 const AdminAuthAdminController = require(`${ControllerApi}/v1/admin/AuthAdminController`);
@@ -26,13 +23,6 @@ const AdminAnswerController = require(`${ControllerApi}/v1/admin/AnswerControlle
 const AdminCommentController = require(`${ControllerApi}/v1/admin/CommentController`);
 const AdminCartcustomController = require(`${ControllerApi}/v1/admin/CartcustomController`);
 const AdminUploadController = require(`${ControllerApi}/v1/admin/UploadController`);
-const CourseController = require(`${ControllerApi}/v1/admin/CourseController`);
-const EposideController = require(`${ControllerApi}/v1/admin/EposideController`);
-const QuestionController = require(`${ControllerApi}/v1/admin/QuestionsController`);
-const MajorController = require(`${ControllerApi}/v1/admin/MajorController`);
-const SubCategoryQuestionsController = require(`${ControllerApi}/v1/admin/subCategoryQuestionsController`);
-const HandoutController = require(`${ControllerApi}/v1/admin/HandoutController`);
-const GradeController = require(`${ControllerApi}/v1/admin/GradeController`);
 //admin router*********************************************
 //article
 adminRouter.post('/article', AdminArticleController.store.bind(AdminArticleController));
@@ -45,42 +35,22 @@ adminRouter.post('/image', uploadImage.single('image'), AdminUploadController.up
 
 adminRouter.post('/video', uploadVideo.single('video'), AdminUploadController.uploadVideo.bind(AdminUploadController));
 
-//course
-
-adminRouter.post('/course',CourseController.store.bind(CourseController));
-adminRouter.get('/index',CourseController.index.bind(CourseController));
-adminRouter.post('/single',CourseController.single.bind(CourseController));
-
-//episode
-adminRouter.post('/episode',EposideController.store.bind(EposideController));
 
 
-//City
-adminRouter.get('/City', apiAuthAdminUser,AdminCityController.index.bind(AdminCityController));
-adminRouter.get('/City/:id', AdminCityController.single.bind(AdminCityController));
-adminRouter.post('/City', AdminCityController.store.bind(AdminCityController));
-adminRouter.put('/City/:id', AdminCityController.update.bind(AdminCityController));
-adminRouter.delete('/City/:id', AdminCityController.destroy.bind(AdminCityController));
-
-
-//country
-adminRouter.get('/country', AdminCountryController.index.bind(AdminCountryController));
-adminRouter.get('/country/:id', AdminCountryController.single.bind(AdminCountryController));
-adminRouter.post('/country', AdminCountryController.store.bind(AdminCountryController));
-adminRouter.put('/country/:id', AdminCountryController.update.bind(AdminCountryController));
-adminRouter.delete('/country/:id', AdminCountryController.destroy.bind(AdminCountryController));
-
-//province
-adminRouter.get('/province', AdminProvinceController.index.bind(AdminProvinceController));
-adminRouter.get('/province/:id', AdminProvinceController.single.bind(AdminProvinceController));
-adminRouter.post('/province', AdminProvinceController.store.bind(AdminProvinceController));
-adminRouter.put('/province/:id', AdminProvinceController.update.bind(AdminProvinceController));
-adminRouter.delete('/province/:id', AdminProvinceController.destroy.bind(AdminProvinceController));
 
 //products
 adminRouter.get('/products', apiAuthAdminUser,AdminProductsController.index.bind(AdminProductsController));
 adminRouter.get('/products/:id', AdminProductsController.single.bind(AdminProductsController));
 adminRouter.delete('/products/:id', AdminProductsController.destroy.bind(AdminProductsController));
+
+//feature
+router.post('/feature', AdminProductsController.storeFeature.bind(AdminProductsController));
+router.post('/featureValue', AdminProductsController.storeFeatureValue.bind(AdminProductsController));
+router.post('/productFeature', AdminProductsController.storeProductFeature.bind(AdminProductsController));
+router.get('/indexFeature', AdminProductsController.indexFeature.bind(AdminProductsController));
+router.post('/indexFeatureValue', AdminProductsController.indexFeatureValue.bind(AdminProductsController));
+router.delete('/deleteProductFeature/:id', AdminProductsController.deleteProductFeature.bind(AdminProductsController));
+router.post('/storeProductFeatureSingle', AdminProductsController.storeProductFeatureSingle.bind(AdminProductsController));
 
 //slider
 adminRouter.get('/slider', AdminSliderController.index.bind(AdminSliderController));
@@ -122,36 +92,5 @@ adminRouter.get('/cartcustom/:id', AdminCartcustomController.single.bind(AdminCa
 adminRouter.post('/login', AdminAuthAdminController.login.bind(AdminAuthAdminController));
 adminRouter.post('/register', AdminAuthAdminController.register.bind(AdminAuthAdminController));
 
-//Questions
-adminRouter.get('/question', QuestionController.index.bind(QuestionController));
-adminRouter.post('/question', QuestionController.store.bind(QuestionController));
-adminRouter.get('/question/:id', QuestionController.single.bind(QuestionController));
-adminRouter.delete('/question/:id', QuestionController.destroy.bind(QuestionController));
-adminRouter.post('/findByMajorIDQuestion', QuestionController.findByMajorIDQuestion.bind(QuestionController));
-
-//CategoryQuestions and subCategory
-adminRouter.get('/major', MajorController.index.bind(MajorController)
-);
-adminRouter.post('/major', MajorController.store.bind(MajorController));
-adminRouter.get('/major/:id', MajorController.single.bind(MajorController));
-adminRouter.delete('/major/:id', MajorController.destroy.bind(MajorController));
-
-adminRouter.get('/subCategoryQuestions', SubCategoryQuestionsController.index.bind(SubCategoryQuestionsController));
-adminRouter.post('/subCategoryQuestions', SubCategoryQuestionsController.store.bind(SubCategoryQuestionsController));
-adminRouter.get('/subCategoryQuestions/:id', SubCategoryQuestionsController.single.bind(SubCategoryQuestionsController));
-adminRouter.delete('/subCategoryQuestions/:id', SubCategoryQuestionsController.destroy.bind(SubCategoryQuestionsController));
-
-//handout
-adminRouter.get('/handout', HandoutController.index.bind(HandoutController));
-adminRouter.post('/handout', HandoutController.store.bind(HandoutController));
-adminRouter.get('/handout/:id', HandoutController.single.bind(HandoutController));
-adminRouter.delete('/handout/:id', HandoutController.destroy.bind(HandoutController));
-adminRouter.post('/findByMajorIDHandout', HandoutController.findByMajorIDHandout.bind(HandoutController));
-
-//grade
-adminRouter.get('/grade', GradeController.index.bind(GradeController));
-adminRouter.post('/grade', GradeController.store.bind(GradeController));
-adminRouter.get('/grade/:id', GradeController.single.bind(GradeController));
-adminRouter.delete('/grade/:id', GradeController.destroy.bind(GradeController));
 router.use('', adminRouter);
 module.exports = router;

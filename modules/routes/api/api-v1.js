@@ -4,10 +4,6 @@ const router = express.Router();
 
 const users = require('./routeUsers');
 router.use('/users',users);
-
-const teacher = require('./routeTeacher');
-router.use('/teacher',teacher);
-
 const admin = require('./routerAdmin');
 router.use('/admin', admin);
 
