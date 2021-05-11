@@ -12,7 +12,7 @@ global.config = require('./modules/config');
 
 // Connect to DB
 // mongodb://mongodb_user:password@localhost:27017/mongodb_db
- mongoose.connect('mongodb://USERNAME:PASSWORD]@localhost:27017/DB' , { useMongoClient : true });
+ mongoose.connect('mongodb://sorenabo_sorena:12345678@localhost:27017/sorenabo_sorena' , { useMongoClient : true });
 //  mongoose.connect('mongodb://127.0.0.1:27017/hdcom_hd724' , { useMongoClient : true});
 
 mongoose.Promise = global.Promise;
