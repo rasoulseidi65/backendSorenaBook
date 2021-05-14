@@ -111,7 +111,7 @@ module.exports = new class CategoryController extends Controller {
             });
         });
     }
-    update(req, res) {
+    updateCategory(req, res) {
         req.checkParams('id', 'ای دی وارد شده صحیح نیست').isMongoId();
         req.checkBody('title', 'وارد کردن فیلد عنوان الزامیست').notEmpty();
         if (this.showValidationErrors(req, res))
@@ -158,7 +158,7 @@ module.exports = new class CategoryController extends Controller {
     }
 
 
-    delete(req, res) {
+    deleteCategory(req, res) {
         req.checkParams('id', 'ای دی وارد شده صحیح نیست').isMongoId();
         if (this.showValidationErrors(req, res))
             return;

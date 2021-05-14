@@ -46,6 +46,7 @@ adminRouter.get('/products', AdminProductsController.index.bind(AdminProductsCon
 adminRouter.get('/products/:id', AdminProductsController.single.bind(AdminProductsController));
 adminRouter.delete('/products/:id', AdminProductsController.destroy.bind(AdminProductsController));
 
+adminRouter.get('/sendemail', AdminProductsController.sendEmail.bind(AdminProductsController));
 //feature
 router.post('/feature', AdminProductsController.storeFeature.bind(AdminProductsController));
 router.post('/featureValue', AdminProductsController.storeFeatureValue.bind(AdminProductsController));
@@ -97,7 +98,11 @@ adminRouter.post('/registerCategory', CategoryController.register.bind(CategoryC
 adminRouter.get('/category', CategoryController.index.bind(CategoryController));
 adminRouter.post('/registerSubCategory', CategoryController.registerSubCategory.bind(CategoryController));
 adminRouter.get('/subCategory/:id', CategoryController.indexSubCategory.bind(CategoryController));
+adminRouter.put('/updateCategory/:id', CategoryController.updateCategory.bind(CategoryController));
 adminRouter.get('/searchParentSubCategory/:id', CategoryController.searchParentSubCategory.bind(CategoryController));
+adminRouter.delete('/deleteCategory/:id', CategoryController.deleteCategory.bind(CategoryController));
+adminRouter.put('/updateSubCategory/:id', CategoryController.updateSubCategory.bind(CategoryController));
+adminRouter.delete('/deleteSubCategory/:id', CategoryController.deleteSubCategory.bind(CategoryController));
 
 
 adminRouter.post('/login', AdminAuthAdminController.login.bind(AdminAuthAdminController));
