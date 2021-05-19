@@ -4,7 +4,6 @@ const mongoosePaginate = require('mongoose-paginate');
 const ProductsSchema = new Schema({
     categoryID:{ type:mongoose.Schema.ObjectId,require, ref:'Category'},
     subCategory: { type:mongoose.Schema.ObjectId,require, ref:'subCategory'},
-    subSubCategory: {type:mongoose.Schema.ObjectId, ref:'SubSubCategory'},
     title: { type: String,},
     count: { type: String },
     price: { type: Number },
