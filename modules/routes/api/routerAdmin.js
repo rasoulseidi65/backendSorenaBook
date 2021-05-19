@@ -34,6 +34,7 @@ adminRouter.delete('/article/:id', AdminArticleController.destroy.bind(AdminArti
 
 //upload image
 adminRouter.post('/image', uploadImage.single('image'), AdminUploadController.uploadImage.bind(AdminUploadController));
+adminRouter.post('/multiUpload',uploadFiles,AdminUploadController.uploadFiles.bind(AdminUploadController));
 
 adminRouter.post('/video', uploadVideo.single('video'), AdminUploadController.uploadVideo.bind(AdminUploadController));
 

@@ -15,7 +15,21 @@ module.exports = new class UploadController extends Controller {
             })
         }
     }
-
+    uploadFiles (req,res){
+        if(req.files) {
+            res.json({
+                message : 'تصویر با موفقیت آپلود شد',
+                imagePath : req.files,
+                data :req.file,
+                success : true,
+            })
+        } else {
+            res.json({
+                message : 'تصویر آپلود نشد',
+                success : false
+            })
+        }
+    }
     uploadVideo(req, res) {
         if(req.file) {
             res.json({
