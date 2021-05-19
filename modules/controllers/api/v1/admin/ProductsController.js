@@ -1,5 +1,4 @@
 const Controller = require(`${config.path.controller}/Controller`);
-const nodemailer = require("nodemailer");
 module.exports = new class ProductsController extends Controller {
     index(req, res) {
         this.model.Products.find({}).sort({name: -1}).exec((err, products) => {
@@ -342,41 +341,41 @@ module.exports = new class ProductsController extends Controller {
     }
 
   }
-async function  sendemail(){
-    let testAccount = await nodemailer.createTestAccount();
-
-    // create reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 587,
-        secure: false,
-        requireTLS: true,
-        auth: {
-            user: 'ras.seidi65@gmail.com', // generated ethereal user
-            pass: 'rasmas1365' // generated ethereal password
-        },
-    });
-let mailOptions={
-    from: 'ras.seidi65@gmail.com', // sender address
-    to: "ras.seidi65@gmail.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>", // html body
-}
-    // send mail with defined transport object
-     await transporter.sendMail(mailOptions,function (err,info) {
-        if(err){
-            console.log(err);
-        }
-        else{
-            console.log(info.response)
-        }
-    });
-
-    console.log("Message sent: %s");
-    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-    // Preview only available when sending through an Ethereal account
-
-}
+// async function  sendemail(){
+//     let testAccount = await nodemailer.createTestAccount();
+//
+//     // create reusable transporter object using the default SMTP transport
+//     let transporter = nodemailer.createTransport({
+//         host: 'smtp.gmail.com',
+//         port: 587,
+//         secure: false,
+//         requireTLS: true,
+//         auth: {
+//             user: 'ras.seidi65@gmail.com', // generated ethereal user
+//             pass: 'rasmas1365' // generated ethereal password
+//         },
+//     });
+// let mailOptions={
+//     from: 'ras.seidi65@gmail.com', // sender address
+//     to: "ras.seidi65@gmail.com", // list of receivers
+//     subject: "Hello ✔", // Subject line
+//     text: "Hello world?", // plain text body
+//     html: "<b>Hello world?</b>", // html body
+// }
+//     // send mail with defined transport object
+//      await transporter.sendMail(mailOptions,function (err,info) {
+//         if(err){
+//             console.log(err);
+//         }
+//         else{
+//             console.log(info.response)
+//         }
+//     });
+//
+//     console.log("Message sent: %s");
+//     // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+//
+//     // Preview only available when sending through an Ethereal account
+//
+// }
 
