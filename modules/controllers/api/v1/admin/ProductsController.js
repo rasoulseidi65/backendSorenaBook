@@ -16,8 +16,6 @@ module.exports = new class ProductsController extends Controller {
             })
         });
     }
-
-
     single(req, res) {
         req.checkParams('id', 'ای دی وارد شده صحیح نیست').isMongoId();
         if (this.showValidationErrors(req, res))
@@ -37,12 +35,11 @@ module.exports = new class ProductsController extends Controller {
             })
         })
     }
-
     registerProduct(req, res) {
         req.checkBody('title', 'وارد کردن فیلد عنوان الزامیست').notEmpty();
         if (this.showValidationErrors(req, res))
             return;
-        let newProduct = new this.model.Product({
+        let newProduct = new this.model.Products({
             categoryID: req.body.categoryID,
             subCategory: req.body.subCategory,
             title: req.body.title,
