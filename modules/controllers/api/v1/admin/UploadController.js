@@ -4,7 +4,7 @@ module.exports = new class UploadController extends Controller {
         if(req.file) {
             res.json({
                 message : 'تصویر با موفقیت آپلود شد',
-                imagePath : 'http://api.hd724.com/' + req.file.path.replace(/\\/g , '/'),
+                imagePath : 'http://api.soronabook.com/' + req.file.path.replace(/\\/g , '/'),
                 data :req.file,
                 success : true,
             })
@@ -20,7 +20,7 @@ module.exports = new class UploadController extends Controller {
         if(req.file) {
             res.json({
                 message : 'ویدیو با موفقیت آپلود شد',
-                videoPath : 'http://api.hd724.com/' + req.file.path.replace(/\\/g , '/'),
+                videoPath : 'http://api.soronabook.com/' + req.file.path.replace(/\\/g , '/'),
                 data :req.file,
                 success : true,
             })
