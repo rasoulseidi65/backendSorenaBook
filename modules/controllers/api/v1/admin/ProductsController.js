@@ -1,7 +1,19 @@
 const Controller = require(`${config.path.controller}/Controller`);
 module.exports = new class ProductsController extends Controller {
     index(req, res) {
-        this.model.Products.find({}).sort({name: -1}).populate('ProductFeature').exec((err, products) => {
+        this.model.Products.find({}).sort({name: -1}).populate({
+            path: 'Category SubCategory SubSubCategory  Inventory ProductFeature',
+            populate: [{
+                path: 'FeaturesValue',
+                model: 'FeaturesValue',
+            },
+                {
+                    path: 'Feature',
+                    model: 'Features'
+
+                }],
+
+        }).exec((err, products) => {
             if (err) throw err;
             if (products) {
                 return res.json({
