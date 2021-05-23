@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 module.exports = new class ProductSellerNewController extends Controller {
     index(req, res) {
-        this.model.Products.find({}).sort({name: -1}).populate('ProductFeature').exec((err, products) => {
+        this.model.Products.find({}).sort({name: -1}).populate('ProductFeature Category').exec((err, products) => {
             if (err) throw err;
             if (products) {
                 return res.json({
