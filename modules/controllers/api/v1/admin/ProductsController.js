@@ -31,7 +31,19 @@ module.exports = new class ProductsController extends Controller {
         req.checkParams('id', 'ای دی وارد شده صحیح نیست').isMongoId();
         if (this.showValidationErrors(req, res))
             return;
-        this.model.Products.findById(req.params.id, (err, products) => {
+        this.model.Products.findOne({_id:req.params.id}).populate({
+            path: 'Category SubCategory  Inventory ProductFeature',
+            populate: [{
+                path: 'FeaturesValue',
+                model: 'FeaturesValue',
+            },
+                {
+                    path: 'Feature',
+                    model: 'Features'
+
+                }],
+
+        }).exec((err, products) => {
             if (products) {
 
                 return res.json({
