@@ -297,7 +297,24 @@ module.exports = new class ProductsController extends Controller {
             });
         });
     }
-
+    deleteFeature(req, res) {
+        req.checkParams('id', 'ای دی وارد شده صحیح نیست').isMongoId();
+        if (this.showValidationErrors(req, res))
+            return;
+        this.model.Features.findByIdAndRemove(req.params.id, (err, result) => {
+            if (err) throw err;
+            if (result) {
+                return res.json({
+                    data: 'ویژگی محصول با موفقیت حذف شد',
+                    success: true
+                });
+            }
+            res.status(404).json({
+                data: 'چنین ویژگی وجود ندارد',
+                success: false
+            });
+        });
+    }
     storeProductFeatureSingle(req, res) {
         console.log(req.body);
         let newFeature;

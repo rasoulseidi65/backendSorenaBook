@@ -52,9 +52,13 @@ adminRouter.get('/sendemail', AdminProductsController.sendEmail.bind(AdminProduc
 router.post('/feature', AdminProductsController.storeFeature.bind(AdminProductsController));
 router.post('/featureValue', AdminProductsController.storeFeatureValue.bind(AdminProductsController));
 router.post('/productFeature', AdminProductsController.storeProductFeature.bind(AdminProductsController));
+
 router.get('/indexFeature', AdminProductsController.indexFeature.bind(AdminProductsController));
 router.post('/indexFeatureValue', AdminProductsController.indexFeatureValue.bind(AdminProductsController));
 router.delete('/deleteProductFeature/:id', AdminProductsController.deleteProductFeature.bind(AdminProductsController));
+router.delete('/deleteFeature/:id', AdminProductsController.deleteFeature.bind(AdminProductsController));
+
+
 router.post('/storeProductFeatureSingle', AdminProductsController.storeProductFeatureSingle.bind(AdminProductsController));
 
 //slider
