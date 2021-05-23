@@ -34,7 +34,7 @@ ProductsSchema.virtual('Category',{
     foreignField:'_id',
 });
 ProductsSchema.virtual('SubCategory',{
-    ref:'SubCategory',
+    ref:'subCategory',
     localField:'subCategory',
     foreignField:'_id',
 });
