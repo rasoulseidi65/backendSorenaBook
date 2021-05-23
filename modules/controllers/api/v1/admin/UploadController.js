@@ -4,7 +4,7 @@ module.exports = new class UploadController extends Controller {
         if(req.file) {
             res.json({
                 message : 'تصویر با موفقیت آپلود شد',
-                imagePath : 'http://api.soronabook.ir/' + req.file.path.replace(/\\/g , '/'),
+                imagePath : 'http://api.sorenabook.ir/' + req.file.path.replace(/\\/g , '/'),
                 data :req.file,
                 success : true,
             })
