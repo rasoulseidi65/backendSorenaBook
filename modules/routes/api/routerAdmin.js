@@ -58,6 +58,7 @@ router.post('/indexFeatureValue', AdminProductsController.indexFeatureValue.bind
 router.delete('/deleteProductFeature/:id', AdminProductsController.deleteProductFeature.bind(AdminProductsController));
 router.delete('/deleteFeature/:id', AdminProductsController.deleteFeature.bind(AdminProductsController));
 
+router.delete('/deleteFeatureValue/:id', AdminProductsController.deleteFeatureValue.bind(AdminProductsController));
 
 router.post('/storeProductFeatureSingle', AdminProductsController.storeProductFeatureSingle.bind(AdminProductsController));
 
