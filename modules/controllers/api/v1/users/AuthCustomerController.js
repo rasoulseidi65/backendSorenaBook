@@ -87,7 +87,7 @@ module.exports = new class AuthCustomerController extends Controller {
 
     }
     index(req , res) {
-        this.model.CustomerUser.findOne({_id:req.params.id}).sort({firstname:-1}).exec((err , user) => {
+        this.model.CustomerUser.findOne({_id:req.params.id}).exec((err , user) => {
             if(err) throw err;
             if(user) {
                 return res.json ({
