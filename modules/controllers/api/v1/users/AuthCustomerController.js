@@ -106,7 +106,6 @@ module.exports = new class AuthCustomerController extends Controller {
         if (this.showValidationErrors(req, res))
             return;
         this.model.CustomerUser.findByIdAndUpdate(req.params.id, {
-
             email: req.body.email,
             firstName: req.body.firstName,
             lastName: req.body.lastName,
@@ -117,8 +116,8 @@ module.exports = new class AuthCustomerController extends Controller {
             mobile: req.body.mobile,
             cardNumber: req.body.cardNumber,
             accountNumber: req.body.accountNumber,
-            shabaNumber: req.body.shabaNumber
-
+            shabaNumber: req.body.shabaNumber,
+            postalCode:req.body.postalCode
 
         }, (err, customeruser) => {
             if (err) throw err;
