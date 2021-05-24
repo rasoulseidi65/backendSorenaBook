@@ -36,7 +36,7 @@ customerRouter.put('/viewCount', ArticleController.updateViewCount.bind(ArticleC
 // auth customer
 customerRouter.post('/login', CustomerAuthCustomerController.login.bind(CustomerAuthCustomerController));
 customerRouter.post('/register', CustomerAuthCustomerController.register.bind(CustomerAuthCustomerController));
-customerRouter.post('/index', CustomerAuthCustomerController.index.bind(CustomerAuthCustomerController));
+customerRouter.get('/index', CustomerAuthCustomerController.index.bind(CustomerAuthCustomerController));
 customerRouter.put('/updateUser/:id', CustomerAuthCustomerController.update.bind(CustomerAuthCustomerController));
 //otd code
 customerRouter.get('/otd', CustomerAuthCustomerController.genarateOTD.bind(CustomerAuthCustomerController));
