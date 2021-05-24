@@ -64,7 +64,7 @@ module.exports = new class AuthCustomerController extends Controller {
             if (err) throw err;
 
             if (customeruser == null)
-                return res.status(422).json({
+                return res.json({
                     data: 'اطلاعات وارد شده صحیح نیست',
                     success: false
                 });
