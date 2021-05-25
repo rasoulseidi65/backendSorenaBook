@@ -93,12 +93,12 @@ customerRouter.get('/products/:id', CustomerProductsController.single.bind(Custo
 //top products
 customerRouter.get('/topproduct', CustomerProductsController.indextopproduct.bind(CustomerProductsController));
 //payment
-router.post('/payment',PaymentController.payment.bind(PaymentController));
-router.get('/payment/checker', PaymentController.checker.bind(PaymentController));
-router.get('/displayPayment/:id', PaymentController.displayPayment.bind(PaymentController));
+customerRouter.post('/payment',PaymentController.payment.bind(PaymentController));
+customerRouter.get('/payment/checker', PaymentController.checker.bind(PaymentController));
+customerRouter.get('/displayPayment/:id', PaymentController.displayPayment.bind(PaymentController));
 //basket
-router.get('/basketList/:id', BasketController.index.bind(BasketController));
-router.get('/myPurchases/:id', BasketController.myPurchases.bind(BasketController));
-router.get('/mySales/:id', BasketController.mySales.bind(BasketController));
+customerRouter.get('/basketList/:id', BasketController.index.bind(BasketController));
+customerRouter.get('/myPurchases/:id', BasketController.myPurchases.bind(BasketController));
+customerRouter.get('/mySales/:id', BasketController.mySales.bind(BasketController));
 router.use('', customerRouter);
 module.exports = router;
