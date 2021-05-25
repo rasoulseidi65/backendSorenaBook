@@ -113,7 +113,7 @@ module.exports = new class PaymentController extends Controller {
                         } else {
                             this.model.Basket.deleteMany({ refID: req.query.Authority }).exec((err, result) => {
                                 if (result) {
-                                    return res.redirect('http://www.hd724.com//#/home/call-back/false');
+                                    return res.redirect('http://www.sorenabook.ir//#/home/call-back/false');
                                 }
                             })
 
