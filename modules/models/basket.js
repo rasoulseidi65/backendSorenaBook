@@ -27,16 +27,11 @@ BasketSchema.virtual('payment', {
     foreignField: 'userID',
 
 });
-BasketSchema.virtual('course', {
-    ref: 'Course',
+BasketSchema.virtual('product', {
+    ref: 'Products',
     localField: 'productID',
     foreignField: '_id',
 
 });
-BasketSchema.virtual('Question', {
-    ref: 'Question',
-    localField: 'productID',
-    foreignField: '_id',
 
-});
 module.exports = mongoose.model('Basket', BasketSchema);

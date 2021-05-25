@@ -24,6 +24,7 @@ const AdminCommentController = require(`${ControllerApi}/v1/admin/CommentControl
 const AdminCartcustomController = require(`${ControllerApi}/v1/admin/CartcustomController`);
 const AdminUploadController = require(`${ControllerApi}/v1/admin/UploadController`);
 const CategoryController = require(`${ControllerApi}/v1/admin/CategoryController`);
+const BasketController=require(`${ControllerApi}/v1/admin/BasketController`);
 
 //admin router*********************************************
 //article
@@ -113,6 +114,10 @@ adminRouter.delete('/deleteSubCategory/:id', CategoryController.deleteSubCategor
 
 adminRouter.post('/login', AdminAuthAdminController.login.bind(AdminAuthAdminController));
 adminRouter.post('/register', AdminAuthAdminController.register.bind(AdminAuthAdminController));
+//backet
+
+adminRouter.get('/basketList', BasketController.index.bind(BasketController));
+
 
 router.use('', adminRouter);
 module.exports = router;

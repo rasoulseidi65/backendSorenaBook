@@ -5,7 +5,7 @@ module.exports = new class PaymentController extends Controller {
         let params = {
             MerchantID: '07a57b2d-48fd-416c-97b7-9aa686ecb050',
             Amount: req.body.user.price,
-            CallbackURL: 'http://api.hd724.com/api/v1/users/payment/checker?price=' +  req.body.user.price + '&',
+            CallbackURL: 'http://api.sorenabook.ir/api/v1/users/payment/checker?price=' +  req.body.user.price + '&',
             Description: 'پرداخت هزینه خرید نمونه سوال',
         };
         let options = {
@@ -100,7 +100,7 @@ module.exports = new class PaymentController extends Controller {
                                                 { resNumber: req.query.Authority},
                                                 { $set: { success: 'موفق',refID: data.RefID}}).exec((err, result) => {
                                                 if (result) {
-                                                    return res.redirect('http://www.HD724.com//#/home/call-back/true');
+                                                    return res.redirect('http://www.sorenabook.ir//#/home/call-back/true');
                                                 }
                                             });
                                         }
