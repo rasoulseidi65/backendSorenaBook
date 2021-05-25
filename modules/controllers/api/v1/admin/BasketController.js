@@ -4,7 +4,7 @@ module.exports = new class BasketController extends Controller {
 
     index(req, res) {
 
-        this.model.Basket.find({success:'موفق'}).populate('user  Product payment ').exec((err, cartcustom) => {
+        this.model.Basket.find({success:'موفق'}).populate('user  Product Payment ').exec((err, cartcustom) => {
             if (err) throw err;
             if (cartcustom.length>0) {
                 return res.json({

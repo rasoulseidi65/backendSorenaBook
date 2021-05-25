@@ -21,7 +21,7 @@ BasketSchema.virtual('user', {
     foreignField: '_id',
 
 });
-BasketSchema.virtual('payment', {
+BasketSchema.virtual('Payment', {
     ref: 'Payment',
     localField: 'userID',
     foreignField: 'userID',
