@@ -116,7 +116,7 @@ adminRouter.post('/login', AdminAuthAdminController.login.bind(AdminAuthAdminCon
 adminRouter.post('/register', AdminAuthAdminController.register.bind(AdminAuthAdminController));
 //backet
 
-adminRouter.get('/basketList', BasketController.index.bind(BasketController));
+adminRouter.get('/getAllOrder', BasketController.index.bind(BasketController));
 
 
 router.use('', adminRouter);
