@@ -19,7 +19,7 @@ module.exports = new class BasketController extends Controller {
         });
     }
     myPurchases(req, res) {
-        this.model.Basket.find({userID:req.params.id,statusProduct:'1'}).populate('user Question course Payment ').exec((err, cartcustom) => {
+        this.model.Basket.find({userID:req.params.id,statusProduct:'1'}).populate('user  Product Payment  ').exec((err, cartcustom) => {
             if (err) throw err;
             if (cartcustom.length>0) {
                 return res.json({
@@ -34,7 +34,7 @@ module.exports = new class BasketController extends Controller {
         });
     }
     mySales(req, res) {
-        this.model.Basket.find({userID:req.params.id,statusProduct:'0'}).populate('user Question course Payment ').exec((err, cartcustom) => {
+        this.model.Basket.find({userID:req.params.id,statusProduct:'0'}).populate('user  Product Payment  ').exec((err, cartcustom) => {
             if (err) throw err;
             if (cartcustom.length>0) {
                 return res.json({

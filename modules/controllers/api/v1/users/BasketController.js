@@ -36,7 +36,7 @@ module.exports = new class BasketController extends Controller {
         });
     }
     mySales(req, res) {
-        this.model.Basket.find({userID:req.params.id,statusProduct:'0'}).populate('user Question course Payment ').exec((err, cartcustom) => {
+        this.model.Basket.find({userID:req.params.id,statusProduct:'0'}).populate('user  product Payment ').exec((err, cartcustom) => {
             if (err) throw err;
             if (cartcustom.length>0) {
                 return res.json({
