@@ -24,7 +24,12 @@ module.exports = new class BasketController extends Controller {
         this.model.Basket.find({userID:req.params.id})
             .populate({
                 path: 'user product',
-                populate: [{
+                populate: [
+                    {
+                        path: 'Category',
+                        model: 'Category',
+                    },
+                    {
                     path: 'FeaturesValue',
                     model: 'FeaturesValue',
                 },
