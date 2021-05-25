@@ -21,7 +21,7 @@ module.exports = new class BasketController extends Controller {
         });
     }
     myPurchases(req, res) {
-        this.model.Basket.find({userID:req.params.id})
+        this.model.Basket.find({userID:req.params.id,success:'موفق'})
             .populate({
                 path: 'user product',
                 populate: [
