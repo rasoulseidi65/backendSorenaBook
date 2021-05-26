@@ -31,7 +31,7 @@ module.exports = new class AdminController extends Controller {
             }
        
             return res.json({
-                data : 'کاربر با موفقیت عfffضو وبسایت شد',
+                data : 'کاربر با موفقیت  وبسایت شد',
                 success : true
             });
         })
@@ -48,7 +48,7 @@ module.exports = new class AdminController extends Controller {
             if(err) throw err;
 
             if(user == null)
-                return res.status(422).json({
+                return res.json({
                     data : 'اطلاعات وارد شده صحیح نیست',
                     success : false
                 });
