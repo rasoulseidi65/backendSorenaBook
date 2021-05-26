@@ -6,7 +6,7 @@ module.exports = new class PaymentController extends Controller {
             MerchantID: 'c217a019-ab0f-4a26-9514-946be5fe29c9',
             Amount: req.body.user.price,
             CallbackURL: 'http://api.sorenabook.ir/api/v1/users/payment/checker?price=' +  req.body.user.price + '&',
-            Description: 'پرداخت هزینه خرید نمونه سوال',
+            Description: 'پرداخت هزینه خرید کتاب',
         };
         let options = {
             method: 'POST',
