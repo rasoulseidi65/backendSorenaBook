@@ -31,7 +31,7 @@ module.exports = new class AuthCustomerController extends Controller {
                     shabaNumber:req.body.shabaNumber,
                     address:req.body.address,
                     password:req.body.password,
-                    type:req.body.type,
+                    type:'user',
                     CVpath:req.body.CVpath,
                     madrak:req.body.madrak,
                 }).save(err => {
