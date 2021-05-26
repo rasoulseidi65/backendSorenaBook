@@ -88,6 +88,8 @@ customerRouter.get('/bestedProducts', CustomerProductsController.bestedProducts.
 customerRouter.get('/productscategory', CustomerProductsController.productsCategory.bind(CustomerProductsController));
 customerRouter.get('/products', CustomerProductsController.index.bind(CustomerProductsController));
 customerRouter.get('/products/:id', CustomerProductsController.single.bind(CustomerProductsController));
+customerRouter.post('/allProductBySearch', CustomerProductsController.allProductBySearch.bind(CustomerProductsController));
+customerRouter.get('/allProduct', CustomerProductsController.allProduct.bind(CustomerProductsController));
 
 // data home screen
 //top products

@@ -686,5 +686,68 @@ module.exports = new class ProductSellerNewController extends Controller {
             })
         })
     }
+    allProductBySearch(req, res) {
+        if(req.body.title){
+            this.model.Products.find({title:{$regex:req.body.title}}).populate({
+                path: 'Category SubCategory  ProductFeature',
+                populate: [{
+                    path: 'FeaturesValue',
+                    model: 'FeaturesValue',
+                },
+                    {
+                        path: 'Feature',
+                        model: 'Features'
 
+                    }],
+
+            }).exec((err, Product) => {
+                if (err)
+                    throw err;
+                if (Product) {
+                    return res.json({
+                        data: Product,
+                        success: true
+                    });
+                }
+                res.json({
+                    data: 'اطلاعاتی وجود ندارد',
+                    success: false
+                })
+            });
+        }
+
+
+    }
+    allProduct(req, res) {
+        this.model.Products.find().sort({updatedAt:-1}).populate({
+            path: 'Category SubCategory SubSubCategory  Inventory ProductFeature',
+            populate: [{
+                path: 'FeaturesValue',
+                model: 'FeaturesValue',
+            },
+                {
+                    path: 'Feature',
+                    model: 'Features'
+
+                }],
+
+        }).exec((err, Product) => {
+            if (err)
+                res.json({
+                    data: 'اطلاعاتی وجود ندارد',
+                    success: false
+                })
+            if (Product) {
+                return res.json({
+                    data: Product,
+                    success: true
+                });
+            }
+            res.json({
+                data: 'اطلاعاتی وجود ندارد',
+                success: false
+            })
+        });
+
+    }
 }
