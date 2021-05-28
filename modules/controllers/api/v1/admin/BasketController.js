@@ -34,7 +34,7 @@ module.exports = new class BasketController extends Controller {
         });
     }
     getOrderByDate(req, res) {
-        this.model.Basket.find({userID:req.params.id,date:req.body.date})
+        this.model.Basket.find({userID:req.body.id,date:req.body.date})
             .populate({
                 path: 'user product',
                 populate: [
