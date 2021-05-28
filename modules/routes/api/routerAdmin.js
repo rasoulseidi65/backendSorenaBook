@@ -117,7 +117,7 @@ adminRouter.post('/register', AdminAuthAdminController.register.bind(AdminAuthAd
 //backet
 
 adminRouter.get('/getAllOrder', BasketController.index.bind(BasketController));
-adminRouter.post('/getOrderByDate/:id', BasketController.getOrderByDate.bind(BasketController));
+adminRouter.post('/getOrderByDate', BasketController.getOrderByDate.bind(BasketController));
 
 
 
