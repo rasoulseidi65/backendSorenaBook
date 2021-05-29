@@ -101,7 +101,7 @@ customerRouter.get('/displayPayment/:id', PaymentController.displayPayment.bind(
 //basket
 customerRouter.get('/basketList/:id', BasketController.index.bind(BasketController));
 customerRouter.get('/myPurchases/:id', BasketController.myPurchases.bind(BasketController));
-customerRouter.post('/getOrderByDate', BasketController.showOrderByDate.bind(BasketController));
+customerRouter.post('/ddd', BasketController.showOrderByDate.bind(BasketController));
 
 customerRouter.get('/mySales/:id', BasketController.mySales.bind(BasketController));
 router.use('', customerRouter);
