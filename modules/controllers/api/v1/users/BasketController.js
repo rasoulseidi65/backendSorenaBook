@@ -71,4 +71,40 @@ module.exports = new class BasketController extends Controller {
             })
         });
     }
+    showOrderByDate(req, res) {
+        this.model.Basket.find({userID:req.body.id,date:req.body.date})
+            .populate({
+                path: 'user product',
+                populate: [
+                    {
+                        path: 'Category',
+                        model: 'Category',
+                    },
+                    {
+                        path: 'FeaturesValue',
+                        model: 'FeaturesValue',
+                    },
+                    {
+                        path: 'Feature',
+                        model: 'Features'
+
+                    }],
+
+            })
+            .exec((err, cartcustom) => {
+                if (err) throw err;
+                console.log(cartcustom)
+                if (cartcustom.length>0) {
+                    return res.json({
+                        data: cartcustom,
+                        success: true
+                    });
+                }
+                res.json({
+                    data: 'هیچ  وجود ندارد',
+                    success: false
+                })
+            });
+    }
+
 }
