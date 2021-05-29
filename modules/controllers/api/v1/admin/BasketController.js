@@ -55,6 +55,7 @@ module.exports = new class BasketController extends Controller {
             })
             .exec((err, cartcustom) => {
                 if (err) throw err;
+                console.log(cartcustom)
                 if (cartcustom.length>0) {
                     return res.json({
                         data: cartcustom,
