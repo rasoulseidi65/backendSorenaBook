@@ -33,7 +33,7 @@ module.exports = new class BasketController extends Controller {
             })
         });
     }
-    getOrderByDate(req, res) {
+   showOrderByDate(req, res) {
         this.model.Basket.find({userID:req.body.id,date:req.body.date})
             .populate({
                 path: 'user product',
