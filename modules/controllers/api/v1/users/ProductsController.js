@@ -750,4 +750,36 @@ module.exports = new class ProductSellerNewController extends Controller {
         });
 
     }
+    allProductByCategory(req, res) {
+        this.model.Products.find({categoryID:req.body.id}).sort({updatedAt:-1}).populate({
+            path: 'Category SubCategory SubSubCategory  Inventory ProductFeature',
+            populate: [{
+                path: 'FeaturesValue',
+                model: 'FeaturesValue',
+            },
+                {
+                    path: 'Feature',
+                    model: 'Features'
+
+                }],
+
+        }).exec((err, Product) => {
+            if (err)
+                res.json({
+                    data: 'اطلاعاتی وجود ندارد',
+                    success: false
+                })
+            if (Product) {
+                return res.json({
+                    data: Product,
+                    success: true
+                });
+            }
+            res.json({
+                data: 'اطلاعاتی وجود ندارد',
+                success: false
+            })
+        });
+
+    }
 }

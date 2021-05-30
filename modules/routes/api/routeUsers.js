@@ -90,6 +90,7 @@ customerRouter.get('/products', CustomerProductsController.index.bind(CustomerPr
 customerRouter.get('/products/:id', CustomerProductsController.single.bind(CustomerProductsController));
 customerRouter.post('/allProductBySearch', CustomerProductsController.allProductBySearch.bind(CustomerProductsController));
 customerRouter.get('/allProduct', CustomerProductsController.allProduct.bind(CustomerProductsController));
+customerRouter.post('/allProductByCategory', CustomerProductsController.allProductByCategory.bind(CustomerProductsController));
 
 // data home screen
 //top products
